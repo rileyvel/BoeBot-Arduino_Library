@@ -103,12 +103,12 @@ void loop() {
 ```
 
 ## The Empirical Formula
-The Boe-Bot hardware cannot receive instructions for specific distances/angles, so
-this library includes two linear, empirical formulas to convert distances/angles
-into lengths of delay, based on my Boe-Bot on USB power.
+This library converts the given centimetres / degrees to time lengths (in milliseconds) 
+of motor activation with two linear, empirical formulas. 
 
+These formulas are derived from my Boe-bot under USB power.
 Different Boe-Bots under different power sources often behave differently. If
-this library can't control your Boe-Bot accurately, please correct it by adding
+your Boe-bot behaves differently than parametres given to this library, please correct it by adding
 a scale factor while initialising this library (as in exemplar 2).
 
 If you do not wish to use the empirical formula, please put add a boolean parameter
