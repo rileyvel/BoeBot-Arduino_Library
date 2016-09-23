@@ -11,7 +11,7 @@ message me.***
 
 # Installation
 Create a new folder named `BoeBot` in the `libraries` folder in your Arduino
-sketchbook (usually in your Documents folder), and copy BoeBot.h and BoeBot.cpp
+sketchbook (usually in your Documents folder), and copy `BoeBot.h` and `BoeBot.cpp`
 inside.
 
 # Usage
