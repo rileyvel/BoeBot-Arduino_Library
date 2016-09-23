@@ -57,7 +57,7 @@ void setup() {
 }
 
 /**
- *  Robot will move in a 20-cm square but backwards.
+ *  Robot will move in a 33-cm square but backwards.
  */
 void loop() {
   // BoeBot.walk(int distance_in_cm, boolean forward);
