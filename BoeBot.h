@@ -16,6 +16,8 @@ public:
         BoeBot(int leftPin, int rightPin, double scaleFactor);
         void walk(int distance, boolean forward);
         void turn(int degree, boolean left);
+        double getScale();
+        void setScale(double s);
 private:
         int _leftPin;
         int _rightPin;

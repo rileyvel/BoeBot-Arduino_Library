@@ -103,3 +103,24 @@ void BoeBot::turn(int degree, boolean left) {
         _servoLeft.detach();
         _servoRight.detach();
 }
+
+/**
+ *  Get scale on the fly
+ *  Does not work if Empirical Formula is disabled
+ *  @return - scaleFactor
+ */
+double BoeBot::getScale() {
+        if (_disableEF)
+                return null;
+        else
+                return _scaleFactor;
+}
+
+/**
+ *  Sets scale on the fly.
+ *  Has no effect if empirical formula is disabled.
+ *  @param - s - new scale factor
+ */
+void BoeBot::setScale(double s) {
+        _scaleFactor = s;
+}
