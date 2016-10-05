@@ -85,7 +85,7 @@ void BoeBot::turn(int degree, boolean left) {
   // Activate Wheels
   if (left) {
     _servoLeft.writeMicroseconds(1000);
-    _servoRight.writeMicroseconds(2000);
+    _servoRight.writeMicroseconds(1000);
   } else {
     _servoLeft.writeMicroseconds(2000);
     _servoRight.writeMicroseconds(2000);
