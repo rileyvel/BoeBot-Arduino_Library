@@ -1,10 +1,6 @@
 # BoeBot-Arduino-Library
 A very simple Arduino Library for Boe-Bot Shield
 
-***This library compiles but hasn't been tested on an actual robot yet. If you used
-it on an actual robot, please report your findings in the issue section or
-message me.***
-
 # Features
 1. Move robot forwards/backwards for a given distance
 1. Turn robot left/right for a given angle
@@ -103,8 +99,8 @@ void loop() {
 ```
 
 ## The Empirical Formula
-This library converts the given centimetres / degrees to time lengths (in milliseconds) 
-of motor activation with two linear, empirical formulas. 
+This library converts the given centimetres / degrees to time lengths (in milliseconds)
+of motor activation with two linear, empirical formulas.
 
 These formulas are derived from my Boe-bot under USB power.
 Different Boe-Bots under different power sources often behave differently. If
