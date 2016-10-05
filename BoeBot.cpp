@@ -111,7 +111,7 @@ void BoeBot::turn(int degree, boolean left) {
  */
 double BoeBot::getScale() {
         if (_disableEF)
-                return null;
+                return 0.0;
         else
                 return _scaleFactor;
 }
