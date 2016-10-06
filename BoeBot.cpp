@@ -18,6 +18,7 @@ BoeBot::BoeBot(int leftPin, int rightPin) {
         _rightPin = rightPin;
         _disableEF = false;
         _scaleFactor = 1.0;
+        _powerFactor = 1.0;
 }
 
 /**
@@ -29,6 +30,7 @@ BoeBot::BoeBot(int leftPin, int rightPin, double scaleFactor) {
         _rightPin = rightPin;
         _disableEF = false;
         _scaleFactor = scaleFactor;
+        _powerFactor = 1.0;
 }
 
 /**
@@ -38,6 +40,20 @@ BoeBot::BoeBot(int leftPin, int rightPin, boolean disableEF) {
         _leftPin = leftPin;
         _rightPin = rightPin;
         _disableEF = true;
+        _powerFactor = 1.0;
+}
+
+/**
+ *  Constructor with scaleFactor and powerFactor;
+ *  Empirical formula and power is scaled.
+ *  WARNING:  powerFactor should not be greater than 1.0.
+ */
+BoeBot::BoeBot(int leftPin, int rightPin, double scaleFactor, double powerFactor) {
+        _leftPin = leftPin;
+        _rightPin = rightPin;
+        _disableEF = false;
+        _scaleFactor = scaleFactor;
+        _powerFactor = powerFactor;
 }
 
 /**
@@ -52,11 +68,11 @@ void BoeBot::walk(int distance, boolean forward) {
 
         // Activate Wheels
         if (forward) {
-                _servoLeft.writeMicroseconds(1000);
-                _servoRight.writeMicroseconds(2000);
+                _servoLeft.writeMicroseconds((int) (1000 + (500 * (1 - _powerFactor))));
+                _servoRight.writeMicroseconds((int) (2000 - (500 * (1 - _powerFactor))));
         } else {
-                _servoLeft.writeMicroseconds(2000);
-                _servoRight.writeMicroseconds(1000);
+                _servoLeft.writeMicroseconds((int) (2000 - (500 * (1 - _powerFactor))));
+                _servoRight.writeMicroseconds((int) (1000 + (500 * (1 - _powerFactor))));
         }
 
         // Calculate Delay Time and Do Delay
@@ -84,11 +100,11 @@ void BoeBot::turn(int degree, boolean left) {
 
         // Activate Wheels
         if (left) {
-                _servoLeft.writeMicroseconds(1000);
-                _servoRight.writeMicroseconds(1000);
+                _servoLeft.writeMicroseconds((int) (1000 + (500 * (1 - _powerFactor))));
+                _servoRight.writeMicroseconds((int) (1000 + (500 * (1 - _powerFactor))));
         } else {
-                _servoLeft.writeMicroseconds(2000);
-                _servoRight.writeMicroseconds(2000);
+                _servoLeft.writeMicroseconds((int) (2000 - (500 * (1 - _powerFactor))));
+                _servoRight.writeMicroseconds((int) (2000 - (500 * (1 - _powerFactor))));
         }
 
         // Calculate Delay Time and Do Delay
@@ -123,4 +139,21 @@ double BoeBot::getScale() {
  */
 void BoeBot::setScale(double s) {
         _scaleFactor = s;
+}
+
+/**
+ *  Get power factor.
+ *  @return - power factor
+ */
+double BoeBot::getPower() {
+        return _powerFactor;
+}
+
+/**
+ *  Sets power factor on the fly.
+ *  @param p - new power factor
+ *  WARNING: Power factor should not be greater than 1.0
+ */
+void BoeBot::setPower(double p) {
+        _powerFactor = p;
 }

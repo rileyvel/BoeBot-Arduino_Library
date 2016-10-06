@@ -14,10 +14,13 @@ public:
         BoeBot(int leftPin, int rightPin);
         BoeBot(int leftPin, int rightPin, boolean disableEF);
         BoeBot(int leftPin, int rightPin, double scaleFactor);
+        BoeBot(int leftPin, int rightPin, double scaleFactor, double powerFactor);
         void walk(int distance, boolean forward);
         void turn(int degree, boolean left);
         double getScale();
         void setScale(double s);
+        double getPower();
+        void setPower(double p);
 private:
         int _leftPin;
         int _rightPin;
@@ -25,6 +28,7 @@ private:
         Servo _servoLeft;
         Servo _servoRight;
         boolean _disableEF;
+        double _powerFactor;
 };
 
 #endif
