@@ -98,6 +98,8 @@ void loop() {
 }
 ```
 
+*To be Updated with New Features Added*
+
 ## The Empirical Formula
 This library converts the given centimetres / degrees to time lengths (in milliseconds)
 of motor activation with two linear, empirical formulas.
