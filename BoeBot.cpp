@@ -79,7 +79,7 @@ void BoeBot::walk(int distance, boolean forward) {
         if (_disableEF) {
                 delay(distance);
         } else {
-                int ms = (int) (distance / 0.012 * _scaleFactor);
+                int ms = (int) (distance / 0.012);
                 delay(ms);
         }
 
